@@ -1,0 +1,62 @@
+Pacman test files formats:
+
+pacman_*.steps:
+
+On first line comes pacman's data, first his position and then all the moves made in game.
+template:
+XX YY WASDX
+
+for example:
+15 6 WWDD
+(Pacman spawns on point (15,6) and moves twice up and twice right).
+
+Then, comes the ghosts' data, one line per ghost, only moves are written
+template:
+WASDX
+
+for example:
+WWXX
+AADD
+
+there will be 2 ghosts, the first moves twice up and twice down, the second one moves twice left and then twice right.
+
+At last, comes the fruits' data, each line is made for each fruit the game spawns. (the order is first line = first fruit).
+template:
+XX YY FRUIT_VALUE FRUIT_LIFETIME FRUIT_CD FRUIT_INTERVAL WASDX
+
+for example:
+10 2 5 30 10 2 WWDD
+
+one fruit will be spawned, with starting position of (10, 2), value of 5, 30 steps lifetime, 10 seconds cooldown till spawns,
+moves every 2 turns, and will move twice up and twice right.
+
+
+pacman_*.result:
+
+the file contains incoming collisions with ghosts and map wins.
+the order of the events is important, and it is written from first to last.
+the template is:
+STEPS_COUNT W/L
+
+for example:
+32 L
+45 W
+
+pacman will hit a ghost after 32 moves and then win the map after 45 moves.
+
+
+terms used:
+
+XX - X Position of object on screen
+YY - Y Position of object on screen
+FRUIT_VALUE - value of fruit
+FRUIT_LIFETIME - how long fruit is on board
+FRUIT_CD - how long untill the fruit spawns
+FRUIT_INTERVAL - speed of fruit (the highter the slower)
+W - UP
+A - LEFT
+D - RIGHT
+X - DOWN
+S - STAY (no move)
+
+
